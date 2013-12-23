@@ -1,0 +1,20 @@
+{
+    "name": "sorin/pushbullet",
+    "description": "Pushbullet SDK",
+    "require": {
+        "guzzle/guzzle": "3.8.*"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sorin Badea",
+            "email": "sorin.badea91@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}
