@@ -1,5 +1,5 @@
 {
-    "name": "sorin/pushbullet",
+    "name": "unusorin/pushbullet",
     "description": "Pushbullet SDK",
     "require": {
         "guzzle/guzzle": "3.8.*"
