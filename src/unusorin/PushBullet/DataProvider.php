@@ -52,6 +52,21 @@ class DataProvider
      */
     public function post($uri, array $postData)
     {
-        return $this->client->post($uri, null, $postData)->setAuth($this->apiKey)->send();
+        $request = $this->client->post($uri)->setAuth($this->apiKey);
+        $request->setBody(json_encode($postData), 'application/json');
+        return $request->send();
+    }
+
+    /**
+     * Do POST (file) request
+     *
+     * @param string $uri
+     * @param array  $postData
+     *
+     * @return \Guzzle\Http\Message\Response
+     */
+    public function file($uri, array $postData)
+    {
+        return $this->client->post($uri, [], $postData)->setAuth($this->apiKey)->send();
     }
 }

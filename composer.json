@@ -2,7 +2,7 @@
     "name": "unusorin/pushbullet",
     "description": "Pushbullet SDK",
     "require": {
-        "guzzle/guzzle": "3.8.*"
+        "guzzle/guzzle": "dev-master"
     },
     "license": "MIT",
     "authors": [

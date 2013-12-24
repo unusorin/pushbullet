@@ -130,6 +130,57 @@ class Device
         }
     }
 
-    //TODO: implement list
-    //TODO: implement files
+    /**
+     * Send list to device
+     *
+     * @param       $title
+     * @param array $list
+     *
+     * @return bool
+     */
+    public function sendList($title, array $list)
+    {
+        try {
+            $this->dataProvider->post(
+                'pushes',
+                [
+                    'type'      => 'list',
+                    'device_id' => $this->getId(),
+                    'title'     => $title,
+                    'items'     => $list
+                ]
+            );
+            return true;
+        } catch (\Exception $e) {
+            return false;
+        }
+    }
+
+    /**
+     * Send file push to device
+     *
+     * @param string $filePath
+     *
+     * @return bool
+     */
+    public function sendFile($filePath)
+    {
+        if (!file_exists($filePath)) {
+            return false;
+        }
+        try {
+            $this->dataProvider->file(
+                'pushes',
+                [
+                    'type'      => 'file',
+                    'device_id' => $this->getId(),
+                    'file'      => '@' . $filePath
+                ]
+            );
+            return true;
+        } catch (\Exception $e) {
+            echo $e;
+            return false;
+        }
+    }
 }
